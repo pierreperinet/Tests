@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DymamicJson", "Test1\DymamicJson.csproj", "{DFFCEFDC-8023-423C-9877-2322D512F70F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DynamicJson", "Test1\DynamicJson.csproj", "{DFFCEFDC-8023-423C-9877-2322D512F70F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSentEvents", "ServerSentEvents\ServerSentEvents.csproj", "{75150099-8E11-4254-9B69-5AD6EC487725}"
 EndProject
