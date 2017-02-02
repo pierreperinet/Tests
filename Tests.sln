@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerSentEvents", "ServerS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sort", "Sort\Sort.csproj", "{5788EF34-B2EC-4A09-B539-1D31904FD2EA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateDemoApp", "NHibernateDemoApp\NHibernateDemoApp.csproj", "{54BB611C-6120-437F-A461-9D0C9A24408D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5788EF34-B2EC-4A09-B539-1D31904FD2EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5788EF34-B2EC-4A09-B539-1D31904FD2EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5788EF34-B2EC-4A09-B539-1D31904FD2EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54BB611C-6120-437F-A461-9D0C9A24408D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54BB611C-6120-437F-A461-9D0C9A24408D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54BB611C-6120-437F-A461-9D0C9A24408D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54BB611C-6120-437F-A461-9D0C9A24408D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
