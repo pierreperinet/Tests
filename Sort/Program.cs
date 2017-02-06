@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace Sort
@@ -56,6 +58,11 @@ namespace Sort
             Array.Sort(arr);
             PrintArray(arr);
 
+            arr = new int[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
+            var al = new ArrayList(arr);
+            al.Sort();
+            PrintArray(al);
+
             string[] array2 = { "ddd", "ccc", "aaa", "bbb" };
             var sortedArray2 = array2.OrderBy(x => x).ToList();
             PrintArray(sortedArray2);
@@ -65,23 +72,19 @@ namespace Sort
             PrintArray(arr3);
 
             Array.Sort(array2);
-            PrintArray(array2.ToList());
+            PrintArray(array2);
 
             //===========================
 
             Console.ReadKey();
         }
 
-        private static void PrintArray(int[] arr)
+        private static void PrintArray(IEnumerable items)
         {
-            for (int i = 0; i < arr.Length; i++)
-                Console.Write(arr[i] + " ");
-            Console.WriteLine();
-        }
-
-        private static void PrintArray<T>(System.Collections.Generic.List<T> list)
-        {
-            list.ForEach(a => Console.Write(a + " "));
+            foreach (var i in items)
+            {
+                Console.Write(i + " ");
+            }
             Console.WriteLine();
         }
     }
