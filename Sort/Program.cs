@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.Linq;
 
 namespace Sort
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             int[] arr = { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
             PrintArray(arr);
@@ -21,28 +20,28 @@ namespace Sort
             //===========================
 
             Console.WriteLine("Bubble sort");
-            arr = new int[]{ 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
+            arr = new[]{ 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
             BubbleSort.Sort(arr);
             PrintArray(arr);
 
             //===========================
 
             Console.WriteLine("Tree sort");
-            arr = new int[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
+            arr = new[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
             TreeSort.Sort(arr);
             PrintArray(arr);
 
             //===========================
 
             Console.WriteLine("Merge sort");
-            arr = new int[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
+            arr = new[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
             MergeSort.Sort(arr, 0, arr.Length - 1);
             PrintArray(arr);
 
             //===========================
 
             Console.WriteLine("Quick sort");
-            arr = new int[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
+            arr = new[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
             QuickSort.Sort(arr, 0, arr.Length - 1);
             PrintArray(arr);
 
@@ -50,15 +49,15 @@ namespace Sort
 
             Console.WriteLine("Generic Sorting");
 
-            arr = new int[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
+            arr = new[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
             var sortedArray1 = arr.OrderBy(x => x).ToList();
             PrintArray(sortedArray1);
 
-            arr = new int[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
+            arr = new[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
             Array.Sort(arr);
             PrintArray(arr);
 
-            arr = new int[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
+            arr = new[] { 10, 4, 7, 6, 3, 5, 2, 1, 9, 8, 0 };
             var al = new ArrayList(arr);
             al.Sort();
             PrintArray(al);
@@ -68,7 +67,7 @@ namespace Sort
             PrintArray(sortedArray2);
 
             var arr3 = array2.ToList();
-            arr3.Sort((x, y) => string.Compare(x, y));
+            arr3.Sort(string.CompareOrdinal);
             PrintArray(arr3);
 
             Array.Sort(array2);
@@ -89,25 +88,23 @@ namespace Sort
         }
     }
 
-    class QuickSort
+    internal class QuickSort
     {
         // sorting
         public static void Sort(int[] arr, int start, int end)
         {
-            if (start < end)
-            {
-                int pivotIndex = Partition(arr, start, end);
-                Sort(arr, start, pivotIndex - 1);
-                Sort(arr, pivotIndex + 1, end);
-            }
+            if (start >= end) return;
+            var pivotIndex = Partition(arr, start, end);
+            Sort(arr, start, pivotIndex - 1);
+            Sort(arr, pivotIndex + 1, end);
         }
 
         // partitioning array on the key so that the left part is <=key, right part > key
         private static int Partition(int[] arr, int start, int end)
         {
-            int key = arr[end];
-            int pivotIndex = start;
-            for (int i = start; i < end; i++)
+            var key = arr[end];
+            var pivotIndex = start;
+            for (var i = start; i < end; i++)
             {
                 if (arr[i] <= key)
                 {
@@ -127,17 +124,15 @@ namespace Sort
         }
     }
 
-    class MergeSort
+    internal class MergeSort
     {
         //merge sort recurcive
 
         public static void Sort(int[] input, int startIndex, int endIndex)
         {
-            int mid;
-
             if (endIndex > startIndex)
             {
-                mid = (endIndex + startIndex) / 2;
+                var mid = (endIndex + startIndex) / 2;
                 Sort(input, startIndex, mid);
                 Sort(input, (mid + 1), endIndex);
                 Merge(input, startIndex, (mid + 1), endIndex);
@@ -147,11 +142,11 @@ namespace Sort
         public static void Merge(int[] input, int left, int mid, int right)
         {
             //Merge procedure takes theta(n) time
-            int[] temp = new int[input.Length];
-            int i, leftEnd, lengthOfInput, tmpPos;
-            leftEnd = mid - 1;
-            tmpPos = left;
-            lengthOfInput = right - left + 1;
+            var temp = new int[input.Length];
+            int i;
+            var leftEnd = mid - 1;
+            var tmpPos = left;
+            var lengthOfInput = right - left + 1;
 
             //selecting smaller element from left sorted array or right sorted array and placing them in temp array.
             while ((left <= leftEnd) && (mid <= right))
@@ -187,14 +182,14 @@ namespace Sort
         }
     }
 
-    class BubbleSort
+    internal class BubbleSort
     {
         // sorting
         public static void Sort(int[] arr)
         {
-            for (int i = 0; i < arr.Length; i++)
+            for (var i = 0; i < arr.Length; i++)
             {
-                for (int sort = 0; sort < arr.Length - 1; sort++)
+                for (var sort = 0; sort < arr.Length - 1; sort++)
                 {
                     if (arr[sort] > arr[sort + 1])
                     {
@@ -212,26 +207,26 @@ namespace Sort
         }
     }
 
-    class PierreSort
+    internal class PierreSort
     {
         // sorting
         public static void Sort(int[] arr)
         {
-            for (int i = 0; i < arr.Length - 1; i++)
+            for (var i = 0; i < arr.Length - 1; i++)
             {
-                var IndexOfSmallest = FindIndexOfSmallest(arr, i + 1);
-                if (arr[IndexOfSmallest] < arr[i])
+                var indexOfSmallest = FindIndexOfSmallest(arr, i + 1);
+                if (arr[indexOfSmallest] < arr[i])
                 {
-                    Swap(ref arr[IndexOfSmallest], ref arr[i]);
+                    Swap(ref arr[indexOfSmallest], ref arr[i]);
                 }
             }
         }
 
         private static int FindIndexOfSmallest(int[] arr, int low)
         {
-            int smallest = arr[low];
-            int index = low;
-            for (int i = low; i < arr.Length; i++)
+            var smallest = arr[low];
+            var index = low;
+            for (var i = low; i < arr.Length; i++)
             {
                 if (smallest > arr[i])
                 {
@@ -250,17 +245,17 @@ namespace Sort
         }
     }
 
-    class TreeSort
+    internal class TreeSort
     {
         // sorting
         public static void Sort(int[] arr)
         {
             Node tree = null;
-            for (int i = 0; i < arr.Length; i++)
+            foreach (var t in arr)
             {
-                TreeInsert(ref tree, arr[i]);
+                TreeInsert(ref tree, t);
             }
-            int index = 0;
+            var index = 0;
             TreePrint(arr, ref index, tree);
         }
 
@@ -268,7 +263,7 @@ namespace Sort
         {
             if (root == null)
             {
-                root = new Node()
+                root = new Node
                 {
                     Value = value,
                     Left = null,
@@ -297,7 +292,7 @@ namespace Sort
             TreePrint(arr, ref index, node.Right);
         }
 
-        class Node
+        private class Node
         {
 
             public int Value;
