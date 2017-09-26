@@ -36,7 +36,6 @@ namespace Email
                Host = "smtp-mail.outlook.com",
                Port = 587,
                Credentials = new NetworkCredential("mankala.game@outlook.com", "Mankala-74"),
-               //UseDefaultCredentials = true,
                EnableSsl = true
             };
             MailAddress from = new MailAddress("mankala.game@outlook.com", "Mankala Game", System.Text.Encoding.UTF8);
